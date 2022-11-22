@@ -3941,9 +3941,13 @@ var index = function () {
         }
       },
       mounted() {
-        this.setScroll()
-        this.setPageIn()
-        ScrollTrigger.refresh();
+        const tl = gsap.timeline()
+        tl.add(()=>{
+            this.setPageIn()
+          })
+          .add(()=>{
+            this.setScroll()
+          }, 1)
       }
     })
   };
