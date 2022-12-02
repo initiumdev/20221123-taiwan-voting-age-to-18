@@ -139,21 +139,13 @@
                 </div>
                 <div class="text">
                   <p>11月26日台灣舉辦18歲公民權修憲公投，若通過，法定投票年齡將從20歲下修到18歲，台灣將新增41萬青年選民。「最老」民主國家台灣，如何攀越962萬票的高門檻？</p>
+                  <p><small style="font-weight: 300">（資料搜集時間為 11/23-11/30，總票數 498 票）</small></p>
                 </div>
-                <div class="form" v-if="table.length === 0">
-                  <div class="option text-center">
-                    <button class="btn" @click="setVote('agree')" :class="{active: vote === 'agree'}"><span class="text">贊成</span></button>
-                    <button class="btn" @click="setVote('disagree')" :class="{active: vote === 'disagree'}"><span class="text">反對</span></button>
-                  </div>
-                  <div class="submit text-center">
-                    <button class="btn" @click="sendVote()" :disabled="validate"> <span class="icon" v-if="loading"></span><span class="text" v-else>送出</span></button>
-                  </div>
-                </div>
-                <div class="result" v-else>
+                <div class="result">
                   <div class="label d-flex justify-content-between"><span class="agree">贊成</span><span class="disagree">反對</span></div>
                   <div class="bar d-flex flex-row">
-                    <div class="agree" :style="`flex: ${votingRate}`"><span>{{votingRate | percentage}}</span></div>
-                    <div class="disagree text-end" :style="`flex: ${1 - votingRate}`"><span>{{1 - votingRate | percentage}}</span></div>
+                    <div class="agree" :style="`flex: 0.9`"><span>90%</span></div>
+                    <div class="disagree text-end" :style="`flex: 0.1`"><span>10%</span></div>
                   </div>
                 </div>
               </div>
